@@ -1,0 +1,23 @@
+---
+title: "perl: warning: Setting locale failed."
+layout: "post"
+permalink: "/2007/08/perl-warning-setting-locale-failed.html"
+uuid: "6930278213541041563"
+guid: "tag:blogger.com,1999:blog-511635374698913488.post-6930278213541041563"
+date: "2007-08-05 12:28:00"
+updated: "2007-08-05 12:33:56"
+description: 
+blogger:
+    siteid: "511635374698913488"
+    postid: "6930278213541041563"
+    comments: "0"
+categories: 
+author: 
+    name: "Sanjay Upadhyay"
+    url: "https://plus.google.com/107444850799096460187?rel=author"
+    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+I was getting this error<br /><blockquote><br />perl: warning: Setting locale failed.<br />perl: warning: Please check that your locale settings:<br />        LANGUAGE = "en_US:en_GB:en",<br />        LC_ALL = (unset),<br />        LANG = "en_US"<br />    are supported and installed on your system.<br />perl: warning: Falling back to the standard locale ("C").<br /></blockquote><br /><br />and I did not know what to do. <br />Yahoo'd and found this link "http://www.linuxquestions.org/questions/showthread.php?t=574006"<br /><br />needed to create this file "/etc/environment" in my debian etch. I do not know, why this file was not present. I had just bootstrapped and installed debian as dom1 in my xen installation.<br /><br />within the file you needed this<br /><blockquote><br />LANGUAGE = en_US<br />LC_ALL = en_US<br />LANG = en_US<br />LC_TYPE = en_US<br /></blockquote><br /><br />Note : besides, I tried to have this dpkg-reconfigure locale.. which ran but still gave the errors. dpkg-reconfigure localeconf, said I did not have the package, when trying to isntall, it said this package does not exist.<br /><br />So still do not know the details, but I am rid of the issue..
+</div>

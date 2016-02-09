@@ -1,0 +1,23 @@
+---
+title: "Large log on the disk, what to do?"
+layout: "post"
+permalink: "/2013/05/large-log-on-disk-what-to-do.html"
+uuid: "6220815972367284489"
+guid: "tag:blogger.com,1999:blog-511635374698913488.post-6220815972367284489"
+date: "2013-05-29 11:06:00"
+updated: "2013-05-29 11:06:07"
+description: 
+blogger:
+    siteid: "511635374698913488"
+    postid: "6220815972367284489"
+    comments: "0"
+categories: 
+author: 
+    name: "Sanjay Upadhyay"
+    url: "https://plus.google.com/107444850799096460187?rel=author"
+    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+<div dir="ltr" style="text-align: left;" trbidi="on">Probably more so, if the log is impt and needs to be saved. Here are a few solutions I gathered -<br /><br />single file, tar is not required, multiple files may be we would want to tar it also. We will tar/gzip and throw the output to stdout which will be piped to a pv (to show the progress) which is piped to nc -l (netcat listener)<br /><br />(on source)<br />1. single large file<br /><blockquote class="tr_bq">&nbsp;gzip -c filename | pv | nc -l 4545 &nbsp;</blockquote>2. multiple large file or directory<br /><blockquote class="tr_bq">tar czf - filename | &nbsp;pv | nc -l 4545</blockquote><br />(on target)<br /><br /><blockquote class="tr_bq">nc source-hostnmae 4545 &gt; filename.gz &nbsp;or nc source-hostnmae 4545 &gt; filename.tar.gz</blockquote><br /></div>
+</div>

@@ -1,0 +1,23 @@
+---
+title: "Copying Files across networks - in optimized way."
+layout: "post"
+permalink: "/2009/09/copying-files-across-networks-in.html"
+uuid: "3559613254309812288"
+guid: "tag:blogger.com,1999:blog-511635374698913488.post-3559613254309812288"
+date: "2009-09-09 06:39:00"
+updated: "2009-09-09 06:39:00"
+description: 
+blogger:
+    siteid: "511635374698913488"
+    postid: "3559613254309812288"
+    comments: "0"
+categories: 
+author: 
+    name: "Sanjay Upadhyay"
+    url: "https://plus.google.com/107444850799096460187?rel=author"
+    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+<div xmlns='http://www.w3.org/1999/xhtml'>scenario : <br/>what - a bunch of files in a dir tree <br/>how much - size is above gb<br/>where - across continent <br/><br/>if we have a reliable connection best is to use ssh copy - yes we will tar gunzip on the source and untar/unzip on destination - <br/><br/>#&gt;tar czf - [dir0] [dir1] ...  | ssh &lt;destination&gt; 'tar xzf -'<br/><br/>if we have a reliable high speed connection probably zipping wouldnt save that much time<br/><br/>#&gt; tar cf - [dir0] [dir1] ...  | ssh &lt;destination&gt; 'tar xf -'<br/><br/>OK now comes unreliable connection  :)<br/>we can zip and send it through rsync - which incase connection broken retries only the pieces which were not transfered. Remember a zip file if changed will be transferred again. hence in case source is going to change frequently and there is requirement to sync both ends over unreliable slow speeds best would be to do a rsync of dir as it is<br/><br/>#&gt;rsync -a [dir0] [dir1] ...  destination:[path]<br/><br/><br/><div class='zemanta-pixie'><img src='http://img.zemanta.com/pixy.gif?x-id=b9a4c484-0a5f-8618-a985-0c3dd0210f79' alt='' class='zemanta-pixie-img'/></div></div>
+</div>

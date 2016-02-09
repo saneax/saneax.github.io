@@ -1,0 +1,23 @@
+---
+title: "Delete files by size recursively"
+layout: "post"
+permalink: "/2007/01/delete-files-by-size-recursively_25.html"
+uuid: "7338109623043773085"
+guid: "tag:blogger.com,1999:blog-511635374698913488.post-7338109623043773085"
+date: "2007-01-25 11:01:00"
+updated: "2007-01-25 11:05:59"
+description: 
+blogger:
+    siteid: "511635374698913488"
+    postid: "7338109623043773085"
+    comments: "0"
+categories: 
+author: 
+    name: "Sanjay Upadhyay"
+    url: "https://plus.google.com/107444850799096460187?rel=author"
+    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+<span style="color:#00ff00;"><b>Delete files by size recursively</b></span><br /><span style="color:#99cc00;"><br /><span style="color:#003300;">find  /var/spool/squid/* -size +10k -type f -exec rm -f '{}' \;<br /><br />The command meaning..<br />find <br />args1 = <where><br />args2 = <find><br />args3 = <what><br />args4 = <and><br />args5 = <-f means files.. we could have mentioned -d (directory) -b (block), -c (character), -f (regular file), -l (link), -s (socket), -p (pipes) ><br />args6 = <-exec means what action to perform if all the matches are true, so -exec is for action..><br />args7..10 = <><br /><br />Cheers...<br />( Besides the above is for my own bad memory :-) )<br /></span></span> <br /><span style="color: rgb(153, 204, 0);"><span style="color: rgb(0, 51, 0);"><where><find><what><and></and></what></find></where></span></span>
+</div>

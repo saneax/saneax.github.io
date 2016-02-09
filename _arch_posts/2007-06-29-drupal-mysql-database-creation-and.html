@@ -1,0 +1,23 @@
+---
+title: "Drupal mysql database creation and assigning priviledges"
+layout: "post"
+permalink: "/2007/06/drupal-mysql-database-creation-and.html"
+uuid: "6501492793082490014"
+guid: "tag:blogger.com,1999:blog-511635374698913488.post-6501492793082490014"
+date: "2007-06-29 11:45:00"
+updated: "2007-06-29 11:47:41"
+description: 
+blogger:
+    siteid: "511635374698913488"
+    postid: "6501492793082490014"
+    comments: "0"
+categories: 
+author: 
+    name: "Sanjay Upadhyay"
+    url: "https://plus.google.com/107444850799096460187?rel=author"
+    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+Archived herein so that I can refer to this, whicle createg databases and assigning privileges.<br /><br />First, you must create a new database for your Drupal site (here, 'databasename' is the name of the new database):<br /><br />mysqladmin -u username -p create databasename<br /><br />MySQL will prompt for the 'username' database password and then create the initial database files. Next you must login and set the access database rights:<br /><br />mysql -u username -p<br /><br />Again, you will be asked for the 'username' database password. At the MySQL prompt, enter following command:<br /><br />GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON databasename.* TO 'username'@'localhost' IDENTIFIED BY 'password';<br /><br />where<br /><br />'databasename' is the name of your database 'username' is the username of your MySQL account 'password' is the password required for that username<br /><br />Note: Unless your database user has all of the privileges listed above, you will not be able to run Drupal.<br /><br />If successful, MySQL will reply with:<br /><br />Query OK, 0 rows affected<br /><br />To activate the new permissions, enter the following command:<br /><br />FLUSH PRIVILEGES;
+</div>

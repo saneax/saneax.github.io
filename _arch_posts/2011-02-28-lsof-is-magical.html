@@ -1,0 +1,23 @@
+---
+title: "lsof is magical"
+layout: "post"
+permalink: "/2011/02/lsof-is-magical.html"
+uuid: "742059677963188030"
+guid: "tag:blogger.com,1999:blog-511635374698913488.post-742059677963188030"
+date: "2011-02-28 11:32:00"
+updated: "2011-02-28 11:55:42"
+description: 
+blogger:
+    siteid: "511635374698913488"
+    postid: "742059677963188030"
+    comments: "0"
+categories: [howto io monitoring, lsof by example, linux, simple examples of lsof, lsof, lsof examples, howto lsof]
+author: 
+    name: "Sanjay Upadhyay"
+    url: "https://plus.google.com/107444850799096460187?rel=author"
+    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
+---
+
+<div class="css-full-post-content js-full-post-content">
+<a href="http://danielmiessler.com/study/lsof/">Here is a link</a>, which is kind of primer for lsof, since it has examples.<br /><br />Here are some examples I have come across which are interesting and cool.<br /><br />kill -9 `lsof -t -c sshd +f -- /dev/md2`<br />I want to kill all process which connects to my sshd, and are accessing raid /dev/md2. ensures no one is connected via ssh and is using the drive. I can then safely shut down sshd.<br /><br /><br />lsof -t -c  java  -a -u <user-id> -a +f -- /dev/md2<br />this is a combination of<br />-c command<br />-a and<br />-u userid<br />-a and (another and)<br />+f file accessing raid disk.<br /><br /><br />lsof   +f -- /var/log<br />everything accessing<br /><br />you send a HUP to all process accessing /var/log, generally daemons accessing logs<br />kill -HUP `lsof   +f -- /var/log`<br /><br /><br />lsof -i| grep LISTEN<br />all that your host is listening (-i is for tcp connections)<br /><br />who is connected on port 6014<br />lsof -i:6014<br /><br />lsof -i:22 -a -u <uid><br />all those connected to port 22 and having <uid> remember if you do not specify -a, it becomes an or and that would mean any thing accessed by <uid><br /><br /># lsof -i:22 -a -u *uid* | wc -l<br />14<br /><br /># lsof -i:22 -u *uid* | wc -l<br />1228<br /><br />remeber -t is for terse, it understands, that you only are interested in the process id.<br /><br /></uid> # lsof -t -i:22 -u *uid* | wc -l<br />100<br /><br />even thoud *uid* user was accessing tons of files etc. he is running 100 process which are the handles to all those activity.<br /><br />enjoy!<br /><user-id><br /><br /><br /><br /></user-id></uid></uid></user-id>
+</div>
