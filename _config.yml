@@ -92,6 +92,10 @@ kramdown:
     coderay_bold_every:        10
     coderay_css:               style
 
+
+fb_admins:          http://facebook.com/saneax
+fb_appid:           387371634670096
+avatar:             media/images/saneax.png
 #Custom Headers
 #webrick:
 #  headers:
