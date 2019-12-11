@@ -1,23 +1,0 @@
----
-title: "Unable to delete a file in linux"
-layout: "post"
-permalink: "/2011/08/unable-to-delete-file-in-linux.html"
-uuid: "4753074360012879597"
-guid: "tag:blogger.com,1999:blog-511635374698913488.post-4753074360012879597"
-date: "2011-08-19 09:14:00"
-updated: "2011-08-19 11:15:50"
-description: 
-blogger:
-    siteid: "511635374698913488"
-    postid: "4753074360012879597"
-    comments: "0"
-categories: 
-author: 
-    name: "Sanjay Upadhyay"
-    url: "https://plus.google.com/107444850799096460187?rel=author"
-    image: "//lh6.googleusercontent.com/-nNSEJNzKT20/AAAAAAAAAAI/AAAAAAAACTg/EsmiWGXicco/s512-c/photo.jpg"
----
-
-<div class="css-full-post-content js-full-post-content">
-On a fine day, I found a normal looking file, which I just wanted to clean.<div><div><br /></div><div>$ ls -l var/t/log/tlog</div><div>-rwxrwxrwx 1 root root 2770 Apr  6 14:05 var/t/log/tlog</div><div>$ sudo rm -rf  var/t/log/tlog</div><div><span class="Apple-style-span">rm: cannot remove `</span>var/t/log/tlog<span class="Apple-style-span">': Operation not permitted</span></div><div>$ sudo rm -rf var/t/log</div><div><span class="Apple-style-span">rm: cannot remove `</span>var/t/log/tlog<span class="Apple-style-span">': Operation not permitted</span></div></div><div><div><span class="Apple-style-span">$ sudo getfacl </span> var/t/log/tlog<span class="Apple-style-span"> </span></div><div># file:  var/t/log/tlog</div><div># owner: root</div><div># group: root</div><div>user::rwx</div><div>group::rwx</div><div>other::rwx</div></div><div><br /></div><div>then why the hello even if I am root, I cannot delete the file. </div><div><br /></div><div><div>#cd var/t/log</div></div><div># lsattr tlog </div><div><div>-----a------- tlog</div></div><div><div># chattr -a tlog </div><div># lsattr tlog </div><div>------------- tlog</div></div><div># rm -rf yinstlog</div><div><br /></div><div>Done. </div><div><br /></div><div><br /></div>
-</div>
