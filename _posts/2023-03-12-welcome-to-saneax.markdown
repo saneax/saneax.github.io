@@ -39,7 +39,7 @@ variable to point to the directory containing your configuration file.
 
 {% highlight javascript %}
 export TEMPEST_CONFIG_DIR=/path/to/tempest-config
-{% endhighlight}
+{% endhighlight %}
 
 This will tell Tempest to use your custom configuration file when running
 tests.
