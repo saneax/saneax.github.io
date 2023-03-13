@@ -3,7 +3,6 @@ layout: home
 # {% seo %}
 ---
 
-### Welcome to saneax.github.io
 
 Hello Explorer,
 
